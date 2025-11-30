@@ -107,6 +107,7 @@
     spotify
     nixfmt-classic
     cmake
+    signal-desktop
   ];
 
   # Bluetooth
