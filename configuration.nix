@@ -115,7 +115,7 @@
     powerOnBoot = true;
     settings.General = { 
       experimental = true;
-      Privacy = "device";
+      Privacy = "off";
       JustWorksRepairing = "always";
       Class = "0x000100";
       FastConnectable = true;
