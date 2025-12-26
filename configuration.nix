@@ -108,6 +108,8 @@
     nixfmt-classic
     cmake
     signal-desktop
+    cargo
+    rustc
   ];
 
   # Bluetooth
