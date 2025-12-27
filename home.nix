@@ -36,6 +36,16 @@
     # '')
   ];
 
+  programs.fish.enable = true;
+
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
+  };
+  
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
