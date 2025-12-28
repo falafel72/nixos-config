@@ -101,13 +101,9 @@
     ]))
     zellij
     git
-    jj
     tealdeer
-    discord
-    spotify
     nixfmt-classic
     cmake
-    signal-desktop
     cargo
     rustc
   ];
