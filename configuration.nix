@@ -108,7 +108,11 @@
     cmake
     cargo
     rustc
+    kitty
   ];
+  environment.sessionVariables = {
+    ESHELL = "fish";
+  };
 
   # Bluetooth
   hardware.bluetooth = { 
@@ -140,6 +144,9 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  # Hyprland system config
+  programs.hyprland.enable = true;
 
   # List services that you want to enable:
 

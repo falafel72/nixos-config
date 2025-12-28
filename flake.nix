@@ -8,6 +8,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs: 
@@ -30,7 +31,16 @@
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
-        modules = [ ./home.nix ];
+        modules = [
+          {
+            wayland.windowManager.hyprland = {
+              enable = true;
+              package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+              portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+            };
+          }
+          ./home.nix
+        ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix

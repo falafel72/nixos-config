@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./hypr
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "kyle";
@@ -88,7 +92,7 @@
   #  /etc/profiles/per-user/kyle/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "emacs";
   };
 
   # Let Home Manager install and manage itself.
