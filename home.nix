@@ -51,6 +51,7 @@
     spotify
     signal-desktop
     jujutsu
+    prismlauncher
   ];
 
   programs.nh = {
