@@ -53,6 +53,7 @@
     jujutsu
     prismlauncher
     hyprlauncher
+    waybar
   ];
 
   programs.nh = {
