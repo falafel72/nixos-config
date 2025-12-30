@@ -109,7 +109,6 @@
     cargo
     rustc
     kitty
-    hyprlauncher
   ];
   environment.sessionVariables = {
     ESHELL = "fish";

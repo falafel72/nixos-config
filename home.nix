@@ -52,6 +52,7 @@
     signal-desktop
     jujutsu
     prismlauncher
+    hyprlauncher
   ];
 
   programs.nh = {
