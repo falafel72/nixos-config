@@ -55,6 +55,7 @@
     hyprlauncher
     waybar
     pavucontrol
+    font-awesome
   ];
 
   programs.nh = {
