@@ -56,6 +56,7 @@
     waybar
     pavucontrol
     font-awesome
+    dunst
   ];
 
   programs.nh = {
