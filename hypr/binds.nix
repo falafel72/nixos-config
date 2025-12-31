@@ -4,10 +4,18 @@
     "$mod" = "SUPER";
     bind  =
       [
-        "$mod, F, exec, firefox"
+        "$mod, F, exec, hyprlauncher"
+        "$mod, E, exec, emacs"
         ", Print, exec, grimblast copy area"
         "$mod, Return, exec, kitty"
-        "$mod, L, exec, hyprlauncher"
+        "$mod, C, killactive,"
+        # Focus binds
+        "$mod, H, movefocus, l"
+        "$mod, K, movefocus, u"
+        "$mod, J, movefocus, d"
+        "$mod, L, movefocus, r"
+        "$mod, S, togglespecialworkspace, magic"
+        "$mod SHIFT, S, movetoworkspace, special:magic"
       ]
       ++ (
         # workspaces
@@ -15,8 +23,8 @@
         builtins.concatLists (builtins.genList (i:
           let ws = i + 1;
           in [
-            "$mod, code:1${toString i}, workspace, ${toString ws}"
-            "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            "$mod, ${toString ws}, workspace, ${toString ws}"
+            "$mod SHIFT, ${toString ws}, movetoworkspace, ${toString ws}"
           ]
         )
         9)

@@ -54,6 +54,7 @@
     prismlauncher
     hyprlauncher
     waybar
+    pavucontrol
   ];
 
   programs.nh = {
