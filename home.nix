@@ -53,6 +53,7 @@
     jujutsu
     prismlauncher
     hyprlauncher
+    hyprlock
     waybar
     pavucontrol
     font-awesome

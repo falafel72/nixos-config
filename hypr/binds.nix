@@ -9,6 +9,7 @@
         ", Print, exec, grimblast copy area"
         "$mod, Return, exec, kitty"
         "$mod, C, killactive,"
+        "$mod, escape, exec, hyprlock "
         # Focus binds
         "$mod, H, movefocus, l"
         "$mod, K, movefocus, u"
