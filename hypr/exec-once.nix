@@ -5,6 +5,7 @@
     exec-once = [
       "waybar"
       "hypridle"
+      "hyprpaper"
     ];
   };
 }
