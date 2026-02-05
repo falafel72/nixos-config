@@ -19,6 +19,15 @@
       ];
   };
 
+  fonts = {
+    fontconfig = {
+      enable = true;
+      antialiasing = true;
+      hinting = "slight";
+      subpixelRendering = "rgb";
+    }; 
+  };
+
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -55,9 +64,12 @@
     hyprlauncher
     hyprlock
     waybar
-    pavucontrol
-    font-awesome
+    pulsemixer
     dunst
+    kitty
+    # fonts
+    font-awesome
+    nerd-fonts.space-mono
   ];
 
   programs.nh = {
@@ -67,6 +79,42 @@
     flake = "/home/user/nixos-config"; # sets NH_OS_FLAKE variable for you
   };
 
+  programs.hyprlock.enable = true;
+  programs.firefox = {
+    enable = true;
+  };
+  programs.kitty.enable = true;
+  stylix = {
+    image = pkgs.fetchurl {
+      url = "https://cdnb.artstation.com/p/assets/images/images/069/873/353/medium/rebecca-hu-scav112-bg-a444b-v03-rh.jpg";
+      hash = "sha256-HHkT4oT0kza4qFuiA/bgXaTpE4nlbZYyb0g0cwQLZ8Y=";
+    };
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    enable = true;
+    fonts = {
+      sansSerif = {
+        package = pkgs.nerd-fonts.space-mono;
+        name = "SpaceMono Nerd Font Mono";
+      };
+      serif = config.stylix.fonts.sansSerif;
+    };
+    targets = {
+      hyprlock = {
+        enable = true;
+        colors.enable = true;
+        image.enable = true;
+      };
+      waybar = {
+        enable = false;
+      };
+      firefox = {
+        enable = false;
+      };
+      kitty = {
+        enable = true;
+      };
+    };
+  };
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -104,4 +152,6 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  
 }

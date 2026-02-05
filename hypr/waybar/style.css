@@ -1,7 +1,11 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'SpaceMono Nerd Font Mono', monospace;
+    font-size: 13px;
+}
+
+span {
     font-family: FontAwesome, monospace;
-    font-size: 12px;
 }
 
 window#waybar {
@@ -31,43 +35,30 @@ button {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-}
+     background: inherit; 
+} 
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: #a37800;
 }
 
 #workspaces button {
     padding: 0 5px;
-    background-color: transparent;
     color: #ffffff;
 }
 
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#workspaces button.focused {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    color: #eb4d4b;
 }
 
-#mode {
-    background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
-}
+/* #mode { */
+/*     background-color: #64727D; */
+/*     box-shadow: inset 0 -3px #ffffff; */
+/* } */
 
 #window,
 #workspaces {
     margin: 0 4px;
-    background-color: #64727D;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -80,17 +71,18 @@ button:hover {
     margin-right: 0;
 }
 
-.modules-right > widget > * {
+.modules-center > widget > * {
     padding: 0 10px;
 }
 
 #hardware > widget > * {
     padding: 0 3px;
+    margin: 0 5px;
 }
 
 #clock {
     padding: 0 10px;
-    background-color: #64727D;
+    color: #ffffff;
 }
 
 @keyframes blink {
@@ -105,22 +97,18 @@ label:focus {
 }
 
 #hardware {
-    background-color: #2ecc71;
-    color: #000000;
+    color: #ffffff;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    color: #ffffff;
 }
 
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
+    color: #999999;
 }
 
 #tray {
-    background-color: #2980b9;
 }
 
 #tray > .passive {
@@ -133,25 +121,22 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #2d3436;
+    color: #ffffff;
 }
 
 #idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
+    color: #ffffff;
 }
 
 #language {
-    background: #00b093;
-    color: #740864;
+    color: #ffffff;
     padding: 0 5px;
     margin: 0 5px;
     min-width: 16px;
 }
 
 #keyboard-state {
-    background: #97e1ad;
-    color: #000000;
+    color: #ffffff;
     padding: 0 0px;
     margin: 0 5px;
     min-width: 16px;

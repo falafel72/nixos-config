@@ -1,7 +1,7 @@
 // -*- mode: jsonc -*-
 {
     // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 30, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
@@ -12,15 +12,15 @@
         "custom/media"
     ],
     "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
         "idle_inhibitor",
         "pulseaudio",
         "group/hardware",
         "hyprland/language",
         "tray",
         "custom/power"
+    ],
+    "modules-right": [
+        "clock"
     ],
     "group/hardware": {
         "orientation": "inherit",
@@ -29,14 +29,16 @@
                     "temperature"]
     },
     "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1"
+        "format": "<span font-family=\"Font Awesome 7 Free\">{icon}</span>",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        }
     },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "{name} {icon}",
+        "format": "{name} <span>{icon}</span>",
         "format-icons": {
             "locked": "",
             "unlocked": ""
@@ -46,7 +48,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "<span font-family=\"Font Awesome 7 Free\">{icon}</span>",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -66,37 +68,37 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "{usage}% <span font-family=\"Font Awesome 7 Free\"></span>",
         "tooltip": false
     },
     "memory": {
-        "format": "{used:0.2f}GiB "
+        "format": "{used:0.2f}GiB <span font-family=\"Font Awesome 7 Free\"></span>"
     },
     "temperature": {
         // "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        "format": "{temperatureC}°C <span font-family=\"Font Awesome 7 Free\">{icon}</span>",
         "format-icons": ["", "", ""]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "{essid} ({signalStrength}%) <span font-family=\"Font Awesome 7 Free\"></span>",
+        "format-ethernet": "{ipaddr}/{cidr} <span font-family=\"Font Awesome 7 Free\"></span>",
+        "tooltip-format": "{ifname} via {gwaddr} <span font-family=\"Font Awesome 7 Free\"></span>",
+        "format-linked": "{ifname} (No IP) <span font-family=\"Font Awesome 7 Free\"></span>",
+        "format-disconnected": "Disconnected <span font-family=\"Font Awesome 7 Free\">⚠</span>",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{volume}% <span font-family=\"Font Awesome 7 Free\">{icon}</span> {format_source}",
+        "format-bluetooth": "{volume}% <span font-family=\"Font Awesome 7 Free\">{icon}</span> {format_source}",
+        "format-bluetooth-muted": "<span font-family=\"Font Awesome 7 Free\"> {icon}</span> {format_source}",
+        "format-muted": "<span font-family=\"Font Awesome 7 Free\"></span> {format_source}",
+        "format-source": "{volume}% <span font-family=\"Font Awesome 7 Free\"></span>",
+        "format-source-muted": "<span font-family=\"Font Awesome 7 Free\"></span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -106,16 +108,15 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "pavucontrol"
     },
     "custom/power": {
-        "format" : "⏻",
+        "format" : "<span font-family=\"Font Awesome 7 Free\">⏻</span>",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
 		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
+			"shutdown": "shutdown now",
+			"reboot": "reboot now",
 			"suspend": "systemctl suspend",
 			"hibernate": "systemctl hibernate"
 		}

@@ -9,9 +9,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    stylix.url = "github:nix-community/stylix/release-25.11";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs =
+    { self,
+      nixpkgs,
+      home-manager,
+      stylix,
+      ... }@inputs: 
     # Please replace my-nixos with your hostname
     let
       system = "x86_64-linux";
@@ -39,6 +45,7 @@
               portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
             };
           }
+          stylix.homeModules.stylix
           ./home.nix
         ];
 
