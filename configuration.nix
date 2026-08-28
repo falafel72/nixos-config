@@ -100,6 +100,7 @@
     wget
     ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [
       epkgs.vterm
+      epkgs.treesit-grammars.with-all-grammars
     ]))
     zellij
     git
